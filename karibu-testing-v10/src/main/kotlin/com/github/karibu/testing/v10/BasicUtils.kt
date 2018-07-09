@@ -144,7 +144,7 @@ fun Button._click() {
     _fireEvent(ClickEvent<Button>(this))
 }
 
-private fun Component.checkEditableByUser() {
+fun Component.checkEditableByUser() {
     check(isEffectivelyVisible()) { "The ${toPrettyString()} is not effectively visible - either it is hidden, or its ascendant is hidden" }
     val parentNullOrEnabled = !parent.isPresent || parent.get().isEffectivelyEnabled()
     if (parentNullOrEnabled) {
@@ -158,7 +158,7 @@ private fun Component.checkEditableByUser() {
     }
 }
 
-private fun Component.isEffectivelyVisible(): Boolean = isVisible && (!parent.isPresent || parent.get().isEffectivelyVisible())
+fun Component.isEffectivelyVisible(): Boolean = isVisible && (!parent.isPresent || parent.get().isEffectivelyVisible())
 
 /**
  * This function actually works, as opposed to [Element.getTextRecursively].
